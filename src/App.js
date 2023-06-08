@@ -1,9 +1,12 @@
 import React from 'react'
-import
+import Globe from "./components/globe/Globe";
+
 
 function App() {
   return (
-    <div>App</div>
+    <div>
+      <Globe/>
+    </div>
   )
 }
 

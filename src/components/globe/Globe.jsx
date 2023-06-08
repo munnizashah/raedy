@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { gsap } from "gsap";
-import "./Globe.css";
+import "./globe.css";
 import { useMediaQuery } from "react-responsive";
 
 const Globe = () => {
@@ -34,12 +34,12 @@ const Globe = () => {
     });
 
     const finger = new GLTFLoader();
-    finger.load("assets/finger_cast.glb", function (s) {
-      s.scene.scale.set(0.8)
-      ;
+    finger.load("assets/finger.glb", function (s) {
+      s.scene.scale.set(4, 4, 4
+        );
 
-      s.scene.position.set(0, 0, 0);
-      s.scene.rotation.set(-10, -1, 100);
+      s.scene.position.set(10, 0, -10);
+      s.scene.rotation.set(0, 0, 10);
       scene.add(s.scene);
     });
       scene.add(finger.scene);
