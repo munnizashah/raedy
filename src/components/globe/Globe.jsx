@@ -38,7 +38,7 @@ const Globe = () => {
     finger.load("assets/finger.glb", function (s) {
       s.scene.scale.set(4, 4, 4);
 
-      s.scene.position.set(10, 12, -10);
+      s.scene.position.set(12, 14, -8);
       s.scene.rotation.set(0, 0, 10);
       scene.add(s.scene);
     });
