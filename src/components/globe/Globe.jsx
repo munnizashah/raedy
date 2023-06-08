@@ -34,9 +34,9 @@ const Globe = () => {
 
     const finger = new GLTFLoader();
     finger.load("assets/finger.glb", function (s) {
-      s.scene.scale.set(4, 4, 4);
+      s.scene.scale.set(5, 5, 5);
 
-      s.scene.position.set(10, 0, -10);
+      s.scene.position.set(10, 12, -10);
       s.scene.rotation.set(0, 0, 10);
       scene.add(s.scene);
     });

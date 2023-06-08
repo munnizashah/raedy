@@ -5,8 +5,8 @@ import About from "./components/about/About";
 function App() {
   return (
     <>
-      <About text="About" />
       <Globe />
+      <About text="About" />
     </>
   );
 }
