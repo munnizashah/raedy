@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -35,14 +34,13 @@ const Globe = () => {
 
     const finger = new GLTFLoader();
     finger.load("assets/finger.glb", function (s) {
-      s.scene.scale.set(4, 4, 4
-        );
+      s.scene.scale.set(4, 4, 4);
 
       s.scene.position.set(10, 0, -10);
       s.scene.rotation.set(0, 0, 10);
       scene.add(s.scene);
     });
-      scene.add(finger.scene);
+    scene.add(finger.scene);
     // set up width and height for the renderer
     const sizes = {
       width: window.innerWidth,
@@ -74,7 +72,12 @@ const Globe = () => {
     scene.add(directionalLightTop);
 
     //* set up camera position and perspective
-    const camera = new THREE.PerspectiveCamera(40, sizes.width / sizes.height, 0.5, 100);
+    const camera = new THREE.PerspectiveCamera(
+      40,
+      sizes.width / sizes.height,
+      0.5,
+      100
+    );
     camera.position.z = 40;
 
     // * create the renderer
@@ -111,10 +114,29 @@ const Globe = () => {
 
     // * create timeline for animation with gsap
     const timeline = gsap.timeline({ defaults: { duration: 1 } });
-    timeline.fromTo(scene.scale, { z: 0, x: 0, y: 0 }, { z: 1, x: 1, y: 1, ease: "power2.inOut" });
-    timeline.fromTo(scene.rotation, { z: 0 }, { z: Math.PI * 2, ease: "ease" }, "<");
-    timeline.fromTo(scene.position, { z: 0 }, { z: 0, ease: "power2.inOut" }, "<");
-    timeline.fromTo(scene.position, { z: -50, y: 50 }, { z: 0, y: 0, ease: "bounce.out" }, "<");
+    timeline.fromTo(
+      scene.scale,
+      { z: 0, x: 0, y: 0 },
+      { z: 1, x: 1, y: 1, ease: "power2.inOut" }
+    );
+    timeline.fromTo(
+      scene.rotation,
+      { z: 0 },
+      { z: Math.PI * 2, ease: "ease" },
+      "<"
+    );
+    timeline.fromTo(
+      scene.position,
+      { z: 0 },
+      { z: 0, ease: "power2.inOut" },
+      "<"
+    );
+    timeline.fromTo(
+      scene.position,
+      { z: -50, y: 50 },
+      { z: 0, y: 0, ease: "bounce.out" },
+      "<"
+    );
 
     // * dispose of the renderer when component is unmounted
     return () => {
