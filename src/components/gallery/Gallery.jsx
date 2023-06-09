@@ -2,18 +2,8 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import {
   aboutImage0,
-  aboutImage1,
   aboutImage2,
   aboutImage3,
-  aboutImage4,
-  aboutImage5,
-  aboutImage6,
-  aboutImage7,
-  aboutImage8,
-  aboutImage9,
-  aboutImage10,
-  aboutImage11,
-  aboutImage12,
 } from "../../assets/images/Index";
 import "./gallery.css";
 

@@ -1,7 +1,5 @@
 .gallery {
-  /* top | left and right | bottom */
-  padding: 2.5rem 0 0 2.5rem;
-  position: relative;
+  /* color:grey */
 }
 .grid {
   display: grid;

@@ -1,10 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Raleway:wght@200&family=Russo+One&display=swap");
-
 .about-section {
   width: 100%;
   display: flex;
   align-items: center;
-  padding-top: 4rem;
+  padding: 1rem 0 1rem 0;
 }
 
 .wrapper {
@@ -30,15 +28,13 @@
 }
 
 .about-heading h1 {
+  margin: 0;
   display: flex;
   flex-direction: row;
-  gap: 0.25rem;
   font-weight: bold;
-  font-size: 2rem;
-  letter-spacing: 0.2em;
+  font-size: 1rem;
   text-transform: uppercase;
   color: #ef4444;
-
   font-family: "Bruno Ace";
 }
 
@@ -46,20 +42,24 @@
   width: 100%;
   overflow: hidden;
   text-align: justify;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding: 0 2.5rem 0 2.5rem;
 }
 .text-section p {
+  font-family: monospace;
   color: white;
-  font-size: 0.875rem;
-  padding-top: 30%;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.ImageSection {
+  /* top | right | bottom | left */
+  padding: 2.5rem 0 2.5rem 0;
 }
 
 @media (min-width: 768px) {
   .about-heading h1 {
     flex-direction: column;
-    gap: 0.5rem;
-    font-size: 6rem;
+    font-size: 4rem;
     letter-spacing: 0.5rem;
   }
 }
