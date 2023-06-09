@@ -41,6 +41,7 @@ const Globe = () => {
 
     const finger = new GLTFLoader();
     finger.load("assets/finger.glb", function (s) {
+
       s.scene.scale.set(1.8, 1.8, 1.8);
       console.log(s)
       s.scene.position.set(0, -11.5, 0);
@@ -52,6 +53,7 @@ const Globe = () => {
   
     });
     
+
     // set up width and height for the renderer
     const sizes = {
       width: window.innerWidth,
