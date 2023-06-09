@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Raleway:wght@200&family=Russo+One&display=swap");
+
+.about-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 4rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-heading {
+  display: flex;
+  justify-content: flex-start;
+  font-weight: bold;
+  color: #333;
+  height: fit-content;
+  width: fit-content;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  overflow: hidden;
+}
+
+.about-heading h1 {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ef4444;
+
+  font-family: "Bruno Ace";
+}
+
+.text-section {
+  width: 100%;
+  overflow: hidden;
+  text-align: justify;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.text-section p {
+  color: black;
+  font-size: 0.875rem;
+  padding-top: 30%;
+}
+
+@media (min-width: 768px) {
+  .about-heading h1 {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 6rem;
+    letter-spacing: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .text-section p {
+    font-size: 1rem;
+  }
+}

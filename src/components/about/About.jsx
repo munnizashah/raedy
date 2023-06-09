@@ -1,0 +1,120 @@
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import "./about.css";
+
+const About = ({ text }) => {
+  const words = text.split("");
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.01 * i },
+    }),
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 50,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 50,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 50,
+      },
+    },
+  };
+
+  return (
+    <>
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: -100,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        transition={{
+          duration: 1,
+          ease: "easeOut",
+        }}
+        className="sectionDivider"
+      />
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: -100,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        transition={{
+          duration: 1,
+          ease: "easeOut",
+        }}
+        className="about-section"
+      >
+        <div className="wrapper">
+          <motion.div className="about-heading">
+            <motion.h1 variants={container} initial="hidden" animate="visible">
+              {words.map((word, index) => (
+                <motion.span variants={child} key={index}>
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h1>
+          </motion.div>
+
+          <motion.div className="text-section">
+            {/* <motion.div className={styles.image_section}>
+              <AboutGallery />
+            </motion.div> */}
+            <motion.p
+              initial={{
+                opacity: 0,
+                x: -100,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              transition={{
+                duration: 1,
+                ease: "easeOut",
+              }}
+            >
+              RAEDY CAMP™ is a training camp designed by professional basketball
+              player Thomas Massamba. It aims to help young basketball players
+              elevate their skills and overall growth. With over ten years of
+              experience in European professional basketball, Thomas
+              incorporates technical expertise, life experience, and holistic
+              well-being into the camp. RAEDY CAMP™ emphasizes personal
+              development, focusing on physical fitness, diet, mental
+              well-being, including yoga and mindfulness. The camp aims to
+              nurture both players and individuals, fostering skills,
+              performance, resilience, and confidence. At RAEDY CAMP™, they
+              believe in unleashing each participant full potential through
+              dedication and opportunity. With their unwavering commitment, they
+              promise to support participants who wholeheartedly invest in the
+              camp. Join RAEDY CAMP™ and become part of the RAEDY community.
+            </motion.p>
+          </motion.div>
+        </div>
+      </motion.div>
+    </>
+  );
+};
+
+export default About;

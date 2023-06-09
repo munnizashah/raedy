@@ -1,14 +1,15 @@
-import React from 'react'
+import React from "react";
 import Globe from "./components/globe/Globe";
 import './App.css'
-
+import About from "./components/about/About";
 
 function App() {
   return (
-    <div>
-      <Globe/>
-    </div>
-  )
+    <>
+      <About text="About" />
+      <Globe />
+    </>
+  );
 }
 
-export default App
+export default App;
