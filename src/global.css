@@ -40,13 +40,6 @@ body {
   background: #000;
 }
 
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
 main {
   min-height: 100vh;
 }
@@ -70,7 +63,7 @@ section {
 /* section divider */
 .sectionDivider {
   display: flex;
-  height: 1rem;
+  height: 0.25rem;
   max-width: 20rem;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
