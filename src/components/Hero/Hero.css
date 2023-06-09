@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+
+
+
+.hero {
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  
+  
+}
+
+.hero_main_heading {
+  font-weight: bold;
+  text-align: center;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Bruno Ace';
+  color: white;
+ 
+}
+
+.hero_main_heading_h1{
+  font-size: 80px;
+ 
+  
+}
+.hero h2{
+  font-size: 25px;
+}

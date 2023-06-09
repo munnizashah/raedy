@@ -22,7 +22,6 @@
   display: flex;
   justify-content: flex-start;
   font-weight: bold;
-  color: #333;
   height: fit-content;
   width: fit-content;
   padding-left: 2.5rem;
@@ -51,7 +50,7 @@
   padding-right: 2.5rem;
 }
 .text-section p {
-  color: black;
+  color: white;
   font-size: 0.875rem;
   padding-top: 30%;
 }
