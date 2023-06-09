@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { gsap } from "gsap";
-import "./globe.css";
+
 import { useMediaQuery } from "react-responsive";
 
 const Globe = () => {
@@ -22,27 +22,38 @@ const Globe = () => {
     const sphere = new GLTFLoader();
     sphere.load("assets/basketball.glb", function (s) {
       s.scene.scale.set(
-        isSmall ? 4 : isMedium ? 5 : 7,
-        isSmall ? 4 : isMedium ? 5 : 7,
-        isSmall ? 4 : isMedium ? 5 : 7
+        isSmall ? 4 : isMedium ? 3 : 5,
+        isSmall ? 4 : isMedium ? 3 : 5,
+        isSmall ? 4 : isMedium ? 3 : 5
       );
-
       s.scene.position.set(0, 0, 0);
       s.scene.rotation.set(-10, -1, 100);
       scene.add(s.scene);
+      function animate() {
+        window.requestAnimationFrame(animate);
+        s.scene.rotation.y += 0.05;
+        
+      }
+      animate();
     });
     
-
+    const skinnormals = new THREE.TextureLoader().load("assets/skinNormal.jpg");
 
     const finger = new GLTFLoader();
     finger.load("assets/finger.glb", function (s) {
-      s.scene.scale.set(4, 4, 4);
 
-      s.scene.position.set(12, 14, -8);
-      s.scene.rotation.set(0, 0, 10);
+      s.scene.scale.set(1.8, 1.8, 1.8);
+      console.log(s)
+      s.scene.position.set(0, -11.5, 0);
+      s.scene.rotation.set(0, 0.5, 0);
       scene.add(s.scene);
+      s.scene.children[0].children[0].children[0].children.map(obj => {
+        obj.material.normalMap = skinnormals;
+        obj.material.color.set(0xde954b)})
+  
     });
-    scene.add(finger.scene);
+    
+
     // set up width and height for the renderer
     const sizes = {
       width: window.innerWidth,
@@ -91,7 +102,7 @@ const Globe = () => {
     // * create orbit controls for the camera
     const controls = new OrbitControls(camera, canvasRef.current);
     controls.enableDamping = false;
-    controls.autoRotate = true;
+    controls.autoRotate = false;
     controls.autoRotateSpeed = 1.5;
     controls.enablePan = false;
     controls.enableZoom = false;
@@ -144,9 +155,7 @@ const Globe = () => {
     return () => {
       renderer.dispose();
     };
-  }, [isMedium, isSmall]);
-
-  // render the canvas
+  }, [isMedium, isSmall]);  // render the canvas
   return (
     <>
       <canvas className="webgl" ref={canvasRef} />
