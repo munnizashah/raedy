@@ -5,7 +5,7 @@ import {
   aboutImage2,
   aboutImage3,
 } from "../../assets/images/Index";
-import "./gallery.css";
+import "./aboutGallery.css";
 
 function AboutGallery() {
   const gridRef = useRef(null);

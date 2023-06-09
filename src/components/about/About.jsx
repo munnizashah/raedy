@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./about.css";
-import AboutGallery from "../gallery/Gallery";
+import AboutGallery from "../aboutGallery/Gallery";
 
 const About = ({ text }) => {
   const words = text.split("");
