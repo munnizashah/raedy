@@ -1,10 +1,9 @@
-
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { gsap } from "gsap";
-import "./globe.css";
+
 import { useMediaQuery } from "react-responsive";
 
 const Globe = () => {
@@ -23,26 +22,38 @@ const Globe = () => {
     const sphere = new GLTFLoader();
     sphere.load("assets/basketball.glb", function (s) {
       s.scene.scale.set(
-        isSmall ? 4 : isMedium ? 5 : 7,
-        isSmall ? 4 : isMedium ? 5 : 7,
-        isSmall ? 4 : isMedium ? 5 : 7
+        isSmall ? 4 : isMedium ? 3 : 5,
+        isSmall ? 4 : isMedium ? 3 : 5,
+        isSmall ? 4 : isMedium ? 3 : 5
       );
-
       s.scene.position.set(0, 0, 0);
       s.scene.rotation.set(-10, -1, 100);
       scene.add(s.scene);
+      function animate() {
+        window.requestAnimationFrame(animate);
+        s.scene.rotation.y += 0.05;
+        
+      }
+      animate();
     });
+    
+    const skinnormals = new THREE.TextureLoader().load("assets/skinNormal.jpg");
 
     const finger = new GLTFLoader();
     finger.load("assets/finger.glb", function (s) {
-      s.scene.scale.set(4, 4, 4
-        );
 
-      s.scene.position.set(10, 0, -10);
-      s.scene.rotation.set(0, 0, 10);
+      s.scene.scale.set(1.8, 1.8, 1.8);
+      console.log(s)
+      s.scene.position.set(0, -11.5, 0);
+      s.scene.rotation.set(0, 0.5, 0);
       scene.add(s.scene);
+      s.scene.children[0].children[0].children[0].children.map(obj => {
+        obj.material.normalMap = skinnormals;
+        obj.material.color.set(0xde954b)})
+  
     });
-      scene.add(finger.scene);
+    
+
     // set up width and height for the renderer
     const sizes = {
       width: window.innerWidth,
@@ -74,7 +85,12 @@ const Globe = () => {
     scene.add(directionalLightTop);
 
     //* set up camera position and perspective
-    const camera = new THREE.PerspectiveCamera(40, sizes.width / sizes.height, 0.5, 100);
+    const camera = new THREE.PerspectiveCamera(
+      40,
+      sizes.width / sizes.height,
+      0.5,
+      100
+    );
     camera.position.z = 40;
 
     // * create the renderer
@@ -86,7 +102,7 @@ const Globe = () => {
     // * create orbit controls for the camera
     const controls = new OrbitControls(camera, canvasRef.current);
     controls.enableDamping = false;
-    controls.autoRotate = true;
+    controls.autoRotate = false;
     controls.autoRotateSpeed = 1.5;
     controls.enablePan = false;
     controls.enableZoom = false;
@@ -111,18 +127,35 @@ const Globe = () => {
 
     // * create timeline for animation with gsap
     const timeline = gsap.timeline({ defaults: { duration: 1 } });
-    timeline.fromTo(scene.scale, { z: 0, x: 0, y: 0 }, { z: 1, x: 1, y: 1, ease: "power2.inOut" });
-    timeline.fromTo(scene.rotation, { z: 0 }, { z: Math.PI * 2, ease: "ease" }, "<");
-    timeline.fromTo(scene.position, { z: 0 }, { z: 0, ease: "power2.inOut" }, "<");
-    timeline.fromTo(scene.position, { z: -50, y: 50 }, { z: 0, y: 0, ease: "bounce.out" }, "<");
+    timeline.fromTo(
+      scene.scale,
+      { z: 0, x: 0, y: 0 },
+      { z: 1, x: 1, y: 1, ease: "power2.inOut" }
+    );
+    timeline.fromTo(
+      scene.rotation,
+      { z: 0 },
+      { z: Math.PI * 2, ease: "ease" },
+      "<"
+    );
+    timeline.fromTo(
+      scene.position,
+      { z: 0 },
+      { z: 0, ease: "power2.inOut" },
+      "<"
+    );
+    timeline.fromTo(
+      scene.position,
+      { z: -50, y: 50 },
+      { z: 0, y: 0, ease: "bounce.out" },
+      "<"
+    );
 
     // * dispose of the renderer when component is unmounted
     return () => {
       renderer.dispose();
     };
-  }, [isMedium, isSmall]);
-
-  // render the canvas
+  }, [isMedium, isSmall]);  // render the canvas
   return (
     <>
       <canvas className="webgl" ref={canvasRef} />
