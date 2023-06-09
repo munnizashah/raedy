@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Spin as Hamburger } from "hamburger-react";
-import "./navbar.css"
-import readyIcon from "../../assets/icons/ready-cropped.png"
+import "./navbar.css";
+import readyIcon from "../../assets/icons/ready-cropped.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,8 +52,8 @@ const Navbar = () => {
       <div className="navbarlogoContainer">
         <a href="/">
           <img
-					src={readyIcon}
-          className="readyIcon"
+            src={readyIcon}
+            className="readyIcon"
             onClick={closeMenu}
             color={isOpen ? "#34D399" : "#ccc"}
           />

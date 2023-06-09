@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./about.css";
+import AboutGallery from "../gallery/Gallery";
 
 const About = ({ text }) => {
   const words = text.split("");
@@ -78,9 +79,9 @@ const About = ({ text }) => {
           </motion.div>
 
           <motion.div className="text-section">
-            {/* <motion.div className={styles.image_section}>
+            <motion.div className="ImageSection">
               <AboutGallery />
-            </motion.div> */}
+            </motion.div>
             <motion.p
               initial={{
                 opacity: 0,
