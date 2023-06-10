@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./about.css";
+import AboutGallery from "../aboutGallery/Gallery";
 
 const About = ({ text }) => {
   const words = text.split("");
@@ -64,10 +65,10 @@ const About = ({ text }) => {
           duration: 1,
           ease: "easeOut",
         }}
-        className="about-section"
+        className="aboutSection"
       >
         <div className="wrapper">
-          <motion.div className="about-heading">
+          <motion.div className="aboutHeading">
             <motion.h1 variants={container} initial="hidden" animate="visible">
               {words.map((word, index) => (
                 <motion.span variants={child} key={index}>
@@ -77,10 +78,10 @@ const About = ({ text }) => {
             </motion.h1>
           </motion.div>
 
-          <motion.div className="text-section">
-            {/* <motion.div className={styles.image_section}>
+          <motion.div className="textSection">
+            <motion.div className="ImageSection">
               <AboutGallery />
-            </motion.div> */}
+            </motion.div>
             <motion.p
               initial={{
                 opacity: 0,

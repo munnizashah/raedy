@@ -4,7 +4,8 @@ import "./App.css";
 import About from "./components/about/About";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import Gallery from "./components/gallery/Gallery";
+import "./global.css";
+
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Navbar />
       <Globe />
       <About text="About" />
-      <Gallery />
+
     </>
   );
 }
