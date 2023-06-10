@@ -18,11 +18,11 @@
 .col {
   flex-basis: 25%;
   padding: 3rem;
-  margin-left: 4rem;
+  margin-left: 3rem;
 }
 
 .col:nth-child(5) {
-  flex-basis: 20%;
+  flex-basis: 22%;
 }
 
 .col h3 {
