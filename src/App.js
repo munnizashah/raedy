@@ -5,7 +5,7 @@ import About from "./components/about/About";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import "./global.css";
-import Gallery from "./components/gallery/Gallery";
+
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <Globe />
       <About text="About" />
-      {/* <Gallery text="gallery" /> */}
+
     </>
   );
 }

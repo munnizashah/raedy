@@ -37,6 +37,19 @@ const Globe = () => {
       animate();
     });
     
+    const hoop = new GLTFLoader();
+    hoop.load("assets/basketball_hoop.glb", function (s) {
+    
+      
+      s.scene.scale.set(.2, .2, .2);
+      console.log(s)
+      s.scene.position.set(0, 0, -90);
+      s.scene.rotation.set(0, 0, 0);
+      scene.add(s.scene);
+      
+    });
+
+
     const skinnormals = new THREE.TextureLoader().load("assets/skinNormal.jpg");
 
     const finger = new GLTFLoader();
@@ -61,27 +74,27 @@ const Globe = () => {
     };
 
     // * create ambient light
-    const ambientLight = new THREE.AmbientLight(0x4a5966);
-    ambientLight.position.set(-10, -10, -10);
-    ambientLight.intensity = 10;
+ /*    const ambientLight = new THREE.AmbientLight(0x4a5966);
+    ambientLight.position.set(-1, -1, -1);
+    ambientLight.intensity = 5;
     scene.add(ambientLight);
-
+ */
     // * create directional light right
     const directionalLightRight = new THREE.DirectionalLight(0xcb0cf2);
     directionalLightRight.position.set(-10, 10, 10);
-    directionalLightRight.intensity = 2;
+    directionalLightRight.intensity = 1;
     scene.add(directionalLightRight);
 
     // * create directional light left
-    const directionalLightLeft = new THREE.DirectionalLight(0x0c23f2);
+    const directionalLightLeft = new THREE.DirectionalLight(0xFFFFFF);
     directionalLightLeft.position.set(-5, -10, -10);
     directionalLightLeft.intensity = 3;
     scene.add(directionalLightLeft);
 
     // * create directional light top
-    const directionalLightTop = new THREE.DirectionalLight(0x0c23f2);
+    const directionalLightTop = new THREE.DirectionalLight(0xFFFFFF);
     directionalLightTop.position.set(0, 10, 0);
-    directionalLightTop.intensity = 5;
+    directionalLightTop.intensity = 2;
     scene.add(directionalLightTop);
 
     //* set up camera position and perspective
