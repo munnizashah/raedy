@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 // import { FaRegTimesCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Image from "react-image";
+/* import Image from "react-image"; */
 
 const Gallery = ({ text }) => {
   const gridRef = useRef(null);
