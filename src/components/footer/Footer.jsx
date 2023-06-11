@@ -68,9 +68,9 @@ function FooterSection() {
         </div>
         <div className="col">
           <div className="socialIcons">
-            <BsFacebook size={30} />
-            <BsTwitter size={30} />
-            <BsInstagram size={30} />
+            <BsFacebook size={30}color="white" />
+            <BsTwitter size={30} color="white" />
+            <BsInstagram size={30} color="white" />
           </div>
         </div>
       </div>
