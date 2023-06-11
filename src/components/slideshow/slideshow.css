@@ -37,18 +37,21 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background: url("http://svgshare.com/i/41_.svg") no-repeat center center /
-    16px;
-  width: 32px;
-  height: 32px;
+  background: url("https://i.pinimg.com/originals/f1/63/5a/f1635ac0ec95bc673af4710199c6dd65.png") no-repeat center center /
+    50px;
+  width: 62px;
+  height: 42px;
   text-indent: -9999px;
   cursor: pointer;
+  padding: 0 40px;  
+  
 }
 
-.previousButton:hover,
-.nextButton:hover {
-  background: url("http://svgshare.com/i/41_.svg") no-repeat center center /
-    16px;
+.previousButton:hover:after,
+.nextButton:hover:after{
+  background: url("https://i.pinimg.com/originals/f1/63/5a/f1635ac0ec95bc673af4710199c6dd65.png") no-repeat center center /
+    60px; 
+   
 }
 
 .previousButton {
