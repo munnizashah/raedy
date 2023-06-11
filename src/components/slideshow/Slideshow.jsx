@@ -31,7 +31,7 @@ function Slideshow() {
     },
   ];
   return (
-    <>
+   /*  <>
     <motion.div
     initial={{
       opacity: 0,
@@ -46,7 +46,7 @@ function Slideshow() {
       ease: "easeOut",
     }}
     className="sectionDivider"
-    />
+    /> */
    
     <Slider className="slider-wrapper">
     {content.map((item, index) => (
@@ -62,7 +62,7 @@ function Slideshow() {
       </div>
     ))}
   </Slider>
-    </>
+  /* </> */
   )
 }
 

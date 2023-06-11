@@ -47,10 +47,10 @@
   
 }
 
-.previousButton:hover,
-.nextButton:hover {
+.previousButton:hover:after,
+.nextButton:hover:after{
   background: url("https://i.pinimg.com/originals/f1/63/5a/f1635ac0ec95bc673af4710199c6dd65.png") no-repeat center center /
-    60px;
+    60px; 
    
 }
 
