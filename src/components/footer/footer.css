@@ -46,7 +46,7 @@ ul li a {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  padding-right: 1.5rem;
+  padding-right: 1.0rem;
 }
 
 hr {

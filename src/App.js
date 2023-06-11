@@ -8,6 +8,7 @@ import "./global.css";
 import Gallery from "./components/gallery/Gallery";
 import FooterSection from "./components/footer/Footer";
 
+
 function App() {
   return (
     <>

@@ -31,10 +31,12 @@
 }
 
 .hero_main_heading_h1{
-  font-size: 80px;
+  font-size: 90px;
+  letter-spacing: 40px;
  
   
 }
 .hero h2{
   font-size: 25px;
+  letter-spacing: 8px;
 }
