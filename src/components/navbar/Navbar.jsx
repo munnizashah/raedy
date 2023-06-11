@@ -14,6 +14,7 @@ const Navbar = () => {
     const handleScroll = () => {
       if (window.scrollY > 1) {
         setIsOpen(false);
+      
       }
     };
 
@@ -24,8 +25,12 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  const closeMenu = () => {
-    setIsOpen(false);
+  const closeMenu = (e) => {
+    e.preventDefault();
+      setIsOpen(false);
+      const audioEl = new Audio("whistleBlowing.mp3");
+      audioEl.play();
+
   };
 
   const menuVariants = {

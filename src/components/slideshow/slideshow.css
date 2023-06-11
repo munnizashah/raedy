@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
-
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 
 .slider-wrapper {
@@ -84,23 +84,20 @@
   transform: translate(-50%, -50%);
 }
 
-.slider-content .inner button {
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
-}
 
 .slider-content .inner h1 {
   font-weight: 900;
   margin: 0 auto;
   max-width: 840px;
   color: #ffffff;
-  font-size: 64px;
+  font-size: 100px;
   line-height: 1;
+ 
 }
 
 .slider-content .inner p {
   color: #ffffff;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 1.5;
   margin: 20px auto 30px;
   max-width: 640px;
