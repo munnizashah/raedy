@@ -28,7 +28,7 @@ video {
 @media only screen and (orientation: landscape) {
   /* CSS rules to hide the specific content go here */
 
-  .section {
+  section {
     min-height: 100vh;
   }
 }
@@ -40,12 +40,8 @@ body {
   background: #000;
 }
 
-main {
-  min-height: 100vh;
-}
-
 section {
-  min-height: calc(100vh - 200px);
+  min-height: 100vh;
   margin: 0 auto;
 }
 
