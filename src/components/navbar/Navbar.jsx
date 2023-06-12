@@ -1,65 +1,52 @@
 import { motion } from "framer-motion";
 import { Spin as Hamburger } from "hamburger-react";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import readyIcon from "../../assets/icons/ready-cropped.png";
 import "./navbar.css";
 
+const menuVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.8, delay: 0.5 },
+  },
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const audioEl = new Audio("whistleBlowing.mp3");
 
-  console.log(isOpen);
+  const handleScroll = useCallback(() => {
+    if (window.scrollY > 1) {
+      setIsOpen(false);
+    }
+  }, []);
 
   // Add event listener for scroll on mount and remove on unmount
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 1) {
-        setIsOpen(false);
-      }
-    };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isOpen]);
+  }, [handleScroll]);
 
-  const closeMenu = (e) => {
-    e.preventDefault();
+  const closeMenu = useCallback(() => {
     setIsOpen(false);
-    const audioEl = new Audio("whistleBlowing.mp3");
-    audioEl.play();
-  };
-
-  const menuVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.8, delay: 0.5 },
-    },
-  };
-
-  const menuItemVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-    hover: {
-      scale: 1.1,
-      color: "#34D399",
-      transition: { type: "spring", stiffness: 300, duration: 0.3 },
-    },
-    tap: { scale: 0.9 },
-  };
+  }, []);
 
   return (
     <div className="navbar">
       <div className="navbarlogoContainer">
-        <a href="/">
+        <a href="#home">
           <img
             src={readyIcon}
             className="readyIcon"
-            onClick={closeMenu}
+            onClick={() => {
+              closeMenu();
+              audioEl.play();
+            }}
             color={isOpen ? "#34D399" : "#ccc"}
-            alt="readyIcon"
+            alt="Logo to take user back to home"
           />
         </a>
       </div>
@@ -85,46 +72,15 @@ const Navbar = () => {
       >
         <motion.div className="menu" variants={menuVariants} initial="hidden" animate="visible">
           <ul>
-            <motion.li
-              onClick={closeMenu}
-              variants={menuItemVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
+            <li onClick={closeMenu}>
               <a href="#home">Home</a>
-            </motion.li>
-            <motion.li
-              onClick={closeMenu}
-              variants={menuItemVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
+            </li>
+            <li onClick={closeMenu}>
               <a href="#about">About</a>
-            </motion.li>
-            <motion.li
-              onClick={closeMenu}
-              variants={menuItemVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
+            </li>
+            <li onClick={closeMenu}>
               <a href="#gallery">Gallery</a>
-            </motion.li>
-            <motion.li
-              onClick={closeMenu}
-              variants={menuItemVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              <a href="/">Shop</a>
-            </motion.li>
-            <motion.li
-              onClick={closeMenu}
-              variants={menuItemVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              <a href="/">Camps</a>
-            </motion.li>
+            </li>
           </ul>
         </motion.div>
       </motion.nav>

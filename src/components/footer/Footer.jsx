@@ -3,7 +3,24 @@ import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import readyIcon from "../../assets/icons/ready-cropped.png";
 import "./footer.css";
 
-function FooterSection() {
+const menuItems = [
+  { name: "Home", link: "/" },
+  { name: "About", link: "/" },
+  { name: "Gallery", link: "/" },
+  { name: "Shop", link: "/" },
+];
+
+const moreItems = [
+  { name: "Careers", link: "/" },
+  { name: "Our Partners", link: "/" },
+];
+
+const raedyCampItems = [
+  { name: "Summer 2021", link: "/" },
+  { name: "3x3 Streetball Tournament", link: "/" },
+];
+
+function Footer() {
   return (
     <div className="footer">
       <div className="footerContainer">
@@ -18,18 +35,11 @@ function FooterSection() {
             </div>
           </h3>
           <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/">About</a>
-            </li>
-            <li>
-              <a href="/">Gallery</a>
-            </li>
-            <li>
-              <a href="/">Shop</a>
-            </li>
+            {menuItems.map((item) => (
+              <li key={item.name}>
+                <a href={item.link}>{item.name}</a>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="col">
@@ -40,12 +50,11 @@ function FooterSection() {
             </div>
           </h3>
           <ul>
-            <li>
-              <a href="/">Careers</a>
-            </li>
-            <li>
-              <a href="/">Our Partners</a>
-            </li>
+            {moreItems.map((item) => (
+              <li key={item.name}>
+                <a href={item.link}>{item.name}</a>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="col">
@@ -56,12 +65,11 @@ function FooterSection() {
             </div>
           </h3>
           <ul>
-            <li>
-              <a href="/">Summer 2021</a>
-            </li>
-            <li>
-              <a href="/">3x3 Streetball Tournament</a>
-            </li>
+            {raedyCampItems.map((item) => (
+              <li key={item.name}>
+                <a href={item.link}>{item.name}</a>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="col">
@@ -78,4 +86,4 @@ function FooterSection() {
   );
 }
 
-export default FooterSection;
+export default Footer;

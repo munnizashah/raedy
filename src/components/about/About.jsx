@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import AboutGallery from "../aboutGallery/Gallery";
+import AboutGallery from "../aboutGallery/AboutGallery";
 import "./about.css";
 
 const About = ({ text }) => {

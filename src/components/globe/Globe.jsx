@@ -30,7 +30,7 @@ const Globe = () => {
       scene.add(s.scene);
       function animate() {
         window.requestAnimationFrame(animate);
-        s.scene.rotation.y += 0.05;
+        s.scene.rotation.y += 0.01;
       }
       animate();
     });
