@@ -1,10 +1,6 @@
-import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import {
-  aboutImage0,
-  aboutImage2,
-  aboutImage3,
-} from "../../assets/images/Index";
+import React, { useEffect, useRef } from "react";
+import { aboutImage0, aboutImage2, aboutImage3 } from "../../assets/images/Index";
 import "./aboutGallery.css";
 
 function AboutGallery() {
@@ -113,13 +109,13 @@ function AboutGallery() {
     <div className="gallery">
       <div className="grid" ref={gridRef}>
         <div className="image">
-          <img src={aboutImage0} alt="Image 1" />
+          <img src={aboutImage0} alt="basket 1" />
         </div>
         <div className="image">
-          <img src={aboutImage2} alt="Image 2" />
+          <img src={aboutImage2} alt="basket 2" />
         </div>
         <div className="image">
-          <img src={aboutImage3} alt="Image 3" />
+          <img src={aboutImage3} alt="basket 3" />
         </div>
         {/* Add more images here */}
       </div>

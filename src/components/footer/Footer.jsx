@@ -1,16 +1,14 @@
 import React from "react";
-import "./footer.css";
+import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import readyIcon from "../../assets/icons/ready-cropped.png";
-import { BsFacebook } from "react-icons/bs";
-import { BsTwitter } from "react-icons/bs";
-import { BsInstagram } from "react-icons/bs";
+import "./footer.css";
 
 function FooterSection() {
   return (
     <div className="footer">
       <div className="footerContainer">
         <div className="raedyFooterIcon">
-          <img src={readyIcon} />
+          <img src={readyIcon} alt="logo" />
         </div>
         <div className="col">
           <h3>
@@ -21,16 +19,16 @@ function FooterSection() {
           </h3>
           <ul>
             <li>
-              <a href="">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a href="">About</a>
+              <a href="/">About</a>
             </li>
             <li>
-              <a href="">Gallery</a>
+              <a href="/">Gallery</a>
             </li>
             <li>
-              <a href="">Shop</a>
+              <a href="/">Shop</a>
             </li>
           </ul>
         </div>
@@ -43,10 +41,10 @@ function FooterSection() {
           </h3>
           <ul>
             <li>
-              <a href="">Careers</a>
+              <a href="/">Careers</a>
             </li>
             <li>
-              <a href="">Our Partners</a>
+              <a href="/">Our Partners</a>
             </li>
           </ul>
         </div>
@@ -59,16 +57,16 @@ function FooterSection() {
           </h3>
           <ul>
             <li>
-              <a href="">Summer 2021</a>
+              <a href="/">Summer 2021</a>
             </li>
             <li>
-              <a href="">3x3 Streetball Tournament</a>
+              <a href="/">3x3 Streetball Tournament</a>
             </li>
           </ul>
         </div>
         <div className="col">
           <div className="socialIcons">
-            <BsFacebook size={30}color="white" />
+            <BsFacebook size={30} color="white" />
             <BsTwitter size={30} color="white" />
             <BsInstagram size={30} color="white" />
           </div>

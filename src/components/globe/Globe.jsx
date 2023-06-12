@@ -1,10 +1,9 @@
+import { gsap } from "gsap";
 import React, { useEffect, useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { gsap } from "gsap";
-
-import { useMediaQuery } from "react-responsive";
 
 const Globe = () => {
   const isMedium = useMediaQuery({ query: "(max-width: 768px)" });
@@ -15,7 +14,7 @@ const Globe = () => {
   useEffect(() => {
     // create a new scene
     const scene = new THREE.Scene();
-    scene.background = null;
+    scene.background = "0xfffff";
     scene.fog = new THREE.Fog(0x1d4ed8, 10, 1000);
 
     // create a sphere geometry
@@ -32,40 +31,35 @@ const Globe = () => {
       function animate() {
         window.requestAnimationFrame(animate);
         s.scene.rotation.y += 0.05;
-        
       }
       animate();
     });
-    
+
     const hoop = new GLTFLoader();
     hoop.load("assets/basketball_hoop.glb", function (s) {
-    
-      
-      s.scene.scale.set(.2, .2, .2);
-      console.log(s)
-      s.scene.position.set(0, 0, -90);
+      s.scene.scale.set(
+        isSmall ? 0.1 : isMedium ? 0.2 : 0.2,
+        isSmall ? 0.1 : isMedium ? 0.2 : 0.2,
+        isSmall ? 0.1 : isMedium ? 0.2 : 0.2
+      );
+      s.scene.position.set(0, 0, -120);
       s.scene.rotation.set(0, 0, 0);
       scene.add(s.scene);
-      
+      console.log(s);
     });
 
-
     const skinnormals = new THREE.TextureLoader().load("assets/skinNormal.jpg");
-
     const finger = new GLTFLoader();
     finger.load("assets/finger.glb", function (s) {
-
       s.scene.scale.set(1.8, 1.8, 1.8);
-      console.log(s)
+      console.log(s);
       s.scene.position.set(0, -11.5, 0);
       s.scene.rotation.set(0, 0.5, 0);
       scene.add(s.scene);
-      s.scene.children[0].children[0].children[0].children.map(obj => {
-        obj.material.normalMap = skinnormals;
-        obj.material.color.set(0xde954b)})
-  
+      s.scene.children[0].children[0].children[0].children.map((obj) => {
+        return (obj.material.normalMap = skinnormals);
+      });
     });
-    
 
     // set up width and height for the renderer
     const sizes = {
@@ -73,37 +67,26 @@ const Globe = () => {
       height: window.innerHeight,
     };
 
-    // * create ambient light
- /*    const ambientLight = new THREE.AmbientLight(0x4a5966);
-    ambientLight.position.set(-1, -1, -1);
-    ambientLight.intensity = 5;
-    scene.add(ambientLight);
- */
     // * create directional light right
-    const directionalLightRight = new THREE.DirectionalLight(0xcb0cf2);
-    directionalLightRight.position.set(-10, 10, 10);
+    const directionalLightRight = new THREE.DirectionalLight(0xab4317);
+    directionalLightRight.position.set(100, 10, 10);
     directionalLightRight.intensity = 1;
     scene.add(directionalLightRight);
 
     // * create directional light left
-    const directionalLightLeft = new THREE.DirectionalLight(0xFFFFFF);
-    directionalLightLeft.position.set(-5, -10, -10);
-    directionalLightLeft.intensity = 3;
+    const directionalLightLeft = new THREE.DirectionalLight(0xfafafa);
+    directionalLightLeft.position.set(0, 100, 0);
+    directionalLightLeft.intensity = 1;
     scene.add(directionalLightLeft);
 
     // * create directional light top
-    const directionalLightTop = new THREE.DirectionalLight(0xFFFFFF);
-    directionalLightTop.position.set(0, 10, 0);
-    directionalLightTop.intensity = 2;
+    const directionalLightTop = new THREE.DirectionalLight(0xe2441d);
+    directionalLightTop.position.set(0, 0, 100);
+    directionalLightTop.intensity = 0.1;
     scene.add(directionalLightTop);
 
     //* set up camera position and perspective
-    const camera = new THREE.PerspectiveCamera(
-      40,
-      sizes.width / sizes.height,
-      0.5,
-      100
-    );
+    const camera = new THREE.PerspectiveCamera(40, sizes.width / sizes.height, 0.5, 200);
     camera.position.z = 40;
 
     // * create the renderer
@@ -133,42 +116,23 @@ const Globe = () => {
     // * create the animation loop
     const loop = () => {
       controls.update();
-      renderer.render(scene, camera, sphere);
+      renderer.render(scene, camera, sphere, hoop, finger);
       window.requestAnimationFrame(loop);
     };
     loop();
 
     // * create timeline for animation with gsap
     const timeline = gsap.timeline({ defaults: { duration: 1 } });
-    timeline.fromTo(
-      scene.scale,
-      { z: 0, x: 0, y: 0 },
-      { z: 1, x: 1, y: 1, ease: "power2.inOut" }
-    );
-    timeline.fromTo(
-      scene.rotation,
-      { z: 0 },
-      { z: Math.PI * 2, ease: "ease" },
-      "<"
-    );
-    timeline.fromTo(
-      scene.position,
-      { z: 0 },
-      { z: 0, ease: "power2.inOut" },
-      "<"
-    );
-    timeline.fromTo(
-      scene.position,
-      { z: -50, y: 50 },
-      { z: 0, y: 0, ease: "bounce.out" },
-      "<"
-    );
+    timeline.fromTo(scene.scale, { z: 0, x: 0, y: 0 }, { z: 1, x: 1, y: 1, ease: "power2.inOut" });
+    timeline.fromTo(scene.rotation, { z: 0 }, { z: Math.PI * 2, ease: "ease" }, "<");
+    timeline.fromTo(scene.position, { z: 0 }, { z: 0, ease: "power2.inOut" }, "<");
+    timeline.fromTo(scene.position, { z: -50, y: 50 }, { z: 0, y: 0, ease: "bounce.out" }, "<");
 
     // * dispose of the renderer when component is unmounted
     return () => {
       renderer.dispose();
     };
-  }, [isMedium, isSmall]);  // render the canvas
+  }, [isMedium, isSmall]); // render the canvas
   return (
     <>
       <canvas className="webgl" ref={canvasRef} />

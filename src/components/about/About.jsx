@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import "./about.css";
 import AboutGallery from "../aboutGallery/Gallery";
+import "./about.css";
 
 const About = ({ text }) => {
   const words = text.split("");
@@ -96,20 +95,17 @@ const About = ({ text }) => {
                 ease: "easeOut",
               }}
             >
-              RAEDY CAMP™ is a training camp designed by professional basketball
-              player Thomas Massamba. It aims to help young basketball players
-              elevate their skills and overall growth. With over ten years of
-              experience in European professional basketball, Thomas
-              incorporates technical expertise, life experience, and holistic
-              well-being into the camp. RAEDY CAMP™ emphasizes personal
-              development, focusing on physical fitness, diet, mental
-              well-being, including yoga and mindfulness. The camp aims to
-              nurture both players and individuals, fostering skills,
-              performance, resilience, and confidence. At RAEDY CAMP™, they
-              believe in unleashing each participant full potential through
-              dedication and opportunity. With their unwavering commitment, they
-              promise to support participants who wholeheartedly invest in the
-              camp. Join RAEDY CAMP™ and become part of the RAEDY community.
+              RAEDY CAMP™ is a training camp designed by professional basketball player Thomas
+              Massamba. It aims to help young basketball players elevate their skills and overall
+              growth. With over ten years of experience in European professional basketball, Thomas
+              incorporates technical expertise, life experience, and holistic well-being into the
+              camp. RAEDY CAMP™ emphasizes personal development, focusing on physical fitness, diet,
+              mental well-being, including yoga and mindfulness. The camp aims to nurture both
+              players and individuals, fostering skills, performance, resilience, and confidence. At
+              RAEDY CAMP™, they believe in unleashing each participant full potential through
+              dedication and opportunity. With their unwavering commitment, they promise to support
+              participants who wholeheartedly invest in the camp. Join RAEDY CAMP™ and become part
+              of the RAEDY community.
             </motion.p>
           </motion.div>
         </div>
