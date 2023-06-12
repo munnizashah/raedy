@@ -1,14 +1,12 @@
 import React from "react";
-import Globe from "./components/globe/Globe";
 import "./App.css";
-import About from "./components/about/About";
-import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import "./global.css";
-import Gallery from "./components/gallery/Gallery";
+import About from "./components/about/About";
 import FooterSection from "./components/footer/Footer";
+import Globe from "./components/globe/Globe";
+import Navbar from "./components/navbar/Navbar";
 import Slideshow from "./components/slideshow/Slideshow";
-
+import "./global.css";
 
 function App() {
   return (

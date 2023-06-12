@@ -1,7 +1,8 @@
 .webgl {
-  background-color: black;
+  background-color: transparent !important;
   transition-property: opacity;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
+  position: absolute;
+  inset: 0;
 }
-

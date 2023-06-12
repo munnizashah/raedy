@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Spin as Hamburger } from "hamburger-react";
-import "./navbar.css";
+import React, { useEffect, useState } from "react";
 import readyIcon from "../../assets/icons/ready-cropped.png";
+import "./navbar.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,6 @@ const Navbar = () => {
     const handleScroll = () => {
       if (window.scrollY > 1) {
         setIsOpen(false);
-      
       }
     };
 
@@ -27,10 +26,9 @@ const Navbar = () => {
 
   const closeMenu = (e) => {
     e.preventDefault();
-      setIsOpen(false);
-      const audioEl = new Audio("whistleBlowing.mp3");
-      audioEl.play();
-
+    setIsOpen(false);
+    const audioEl = new Audio("whistleBlowing.mp3");
+    audioEl.play();
   };
 
   const menuVariants = {
@@ -61,6 +59,7 @@ const Navbar = () => {
             className="readyIcon"
             onClick={closeMenu}
             color={isOpen ? "#34D399" : "#ccc"}
+            alt="readyIcon"
           />
         </a>
       </div>
@@ -84,12 +83,7 @@ const Navbar = () => {
           zIndex: 10,
         }}
       >
-        <motion.div
-          className="menu"
-          variants={menuVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <motion.div className="menu" variants={menuVariants} initial="hidden" animate="visible">
           <ul>
             <motion.li
               onClick={closeMenu}
