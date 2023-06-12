@@ -26,8 +26,8 @@
 .slide.animateIn.next p {
 	-webkit-transform: translateX(0);
 	        transform: translateX(0);
-	-webkit-transition-delay: .9s;
-					transition-delay: .9s;
+	-webkit-transition-delay: 2.1s;
+					transition-delay: 2.1s;
 					opacity: 1;
 }
 

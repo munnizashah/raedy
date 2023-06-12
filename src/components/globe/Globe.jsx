@@ -41,7 +41,7 @@ const Globe = () => {
     hoop.load("assets/basketball_hoop.glb", function (s) {
     
       
-      s.scene.scale.set(.2, .2, .2);
+      s.scene.scale.set(.13, .16, .2);
       console.log(s)
       s.scene.position.set(0, 0, -90);
       s.scene.rotation.set(0, 0, 0);

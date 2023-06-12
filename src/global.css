@@ -37,7 +37,7 @@ html,
 body {
   overflow-x: hidden;
   font-family: "Quicksand", monospace;
-  background: #000;
+  background: black;
 }
 
 main {
