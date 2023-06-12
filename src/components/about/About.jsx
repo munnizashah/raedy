@@ -37,39 +37,15 @@ const About = ({ text }) => {
 
   return (
     <>
-      <motion.div
-        initial={{
-          opacity: 0,
-          x: -100,
-        }}
-        whileInView={{
-          opacity: 1,
-          x: 0,
-        }}
-        transition={{
-          duration: 1,
-          ease: "easeOut",
-        }}
-        className="sectionDivider"
-      />
-      <motion.div
-        initial={{
-          opacity: 0,
-          x: -100,
-        }}
-        whileInView={{
-          opacity: 1,
-          x: 0,
-        }}
-        transition={{
-          duration: 1,
-          ease: "easeOut",
-        }}
-        className="aboutSection"
-      >
+      <motion.div className="sectionDivider" />
+      <motion.div className="aboutSection">
         <div className="wrapper">
           <motion.div className="aboutHeading">
-            <motion.h1 variants={container} initial="hidden" animate="visible">
+            <motion.h1
+              variants={container}
+              initial="hidden"
+              whileInView="visible"
+            >
               {words.map((word, index) => (
                 <motion.span variants={child} key={index}>
                   {word}
@@ -85,11 +61,11 @@ const About = ({ text }) => {
             <motion.p
               initial={{
                 opacity: 0,
-                x: -100,
+                y: 100,
               }}
               whileInView={{
                 opacity: 1,
-                x: 0,
+                y: -25,
               }}
               transition={{
                 duration: 1,
