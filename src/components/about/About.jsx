@@ -37,14 +37,10 @@ const About = ({ text }) => {
   return (
     <>
       <motion.div className="sectionDivider" />
-      <motion.div className="aboutSection">
+      <motion.section className="aboutSection" id="about">
         <div className="wrapper">
           <motion.div className="aboutHeading">
-            <motion.h1
-              variants={container}
-              initial="hidden"
-              whileInView="visible"
-            >
+            <motion.h1 variants={container} initial="hidden" whileInView="visible">
               {words.map((word, index) => (
                 <motion.span variants={child} key={index}>
                   {word}
@@ -85,7 +81,7 @@ const About = ({ text }) => {
             </motion.p>
           </motion.div>
         </div>
-      </motion.div>
+      </motion.section>
     </>
   );
 };

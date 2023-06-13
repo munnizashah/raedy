@@ -8,15 +8,9 @@ import "./global.css";
 function App() {
   return (
     <>
-      <section id="home">
-        <Hero />
-      </section>
-      <section id="about">
-        <About text="About" />
-      </section>
-      <section id="gallery">
-        <Slideshow />
-      </section>
+      <Hero />
+      <About text="About" />
+      <Slideshow />
     </>
   );
 }

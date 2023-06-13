@@ -42,21 +42,22 @@ function Slideshow() {
         }}
         className="sectionDivider"
       />
-
-      <Slider className="slider-wrapper">
-        {content.map((item, index) => (
-          <div
-            key={index}
-            className="slider-content"
-            style={{ background: `url('${item.image}') no-repeat center center` }}
-          >
-            <div className="inner">
-              <h1>{item.title}</h1>
-              <p>{item.description}</p>
+      <section id="gallery">
+        <Slider className="slider-wrapper">
+          {content.map((item, index) => (
+            <div
+              key={index}
+              className="slider-content"
+              style={{ background: `url('${item.image}') no-repeat center center` }}
+            >
+              <div className="inner">
+                <h1>{item.title}</h1>
+                <p>{item.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </section>
     </>
   );
 }

@@ -5,7 +5,7 @@ import "./Hero.css";
 
 function Hero() {
   return (
-    <div className="hero">
+    <section className="hero" id="home">
       <Globe />
       <div className="hero_headings">
         <motion.h1
@@ -41,7 +41,7 @@ function Hero() {
           Raedy to go
         </motion.h2>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -47,7 +47,7 @@
 }
 .textSection p {
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
   line-height: 2rem;
 }
 
@@ -73,6 +73,6 @@
 
 @media (min-width: 768px) {
   .textSection p {
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
 }
