@@ -1,14 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
 
 .hero {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: fit-content;
+  height: 100vh;
 }
 
-.hero_main_heading {
+.hero_headings {
   font-weight: bold;
   text-align: center;
   display: flex;
@@ -24,11 +25,22 @@
   inset: 0;
 }
 
-.hero_main_heading_h1 {
+.hero_headings h1 {
   font-size: 90px;
   letter-spacing: 40px;
 }
-.hero h2 {
+.hero_headings h2 {
   font-size: 25px;
   letter-spacing: 8px;
+}
+
+@media (max-width: 768px) {
+  .hero_headings h1 {
+    font-size: 50px;
+    letter-spacing: 20px;
+  }
+  .hero_headings h2 {
+    font-size: 20px;
+    letter-spacing: 5px;
+  }
 }

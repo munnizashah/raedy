@@ -14,7 +14,7 @@ const Globe = () => {
   useEffect(() => {
     // create a new scene
     const scene = new THREE.Scene();
-    scene.background = "0xfffff";
+    scene.background = "0xffffff";
     scene.fog = new THREE.Fog(0x1d4ed8, 10, 1000);
 
     // create a sphere geometry

@@ -5,4 +5,6 @@
   transition-timing-function: ease-in-out;
   position: absolute;
   inset: 0;
+  z-index: 1;
+  display: none;
 }

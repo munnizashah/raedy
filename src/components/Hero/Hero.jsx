@@ -6,9 +6,9 @@ import "./Hero.css";
 function Hero() {
   return (
     <div className="hero">
-      <div className="hero_main_heading">
+      <Globe />
+      <div className="hero_headings">
         <motion.h1
-          className="hero_main_heading_h1"
           initial={{
             opacity: 0,
           }}
@@ -25,7 +25,6 @@ function Hero() {
           Raedy{" "}
         </motion.h1>
         <motion.h2
-          className="hero_main_heading_h2"
           initial={{
             opacity: 0,
           }}
@@ -42,7 +41,6 @@ function Hero() {
           Raedy to go
         </motion.h2>
       </div>
-      <Globe />
     </div>
   );
 }
