@@ -69,6 +69,10 @@
   font-family: "Quicksand", monospace;
   font-weight: 500;
   text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.menu ul li a:hover {
+  color: rgb(4, 213, 213);
 }
 
 @media only screen and (max-width: 600px) {

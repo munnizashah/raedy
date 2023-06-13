@@ -4,6 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import "./globe.css";
 
 const Globe = () => {
   const isMedium = useMediaQuery({ query: "(max-width: 768px)" });
@@ -42,7 +43,7 @@ const Globe = () => {
         isSmall ? 0.1 : isMedium ? 0.2 : 0.2,
         isSmall ? 0.1 : isMedium ? 0.2 : 0.2
       );
-      s.scene.position.set(0, 0, -120);
+      s.scene.position.set(0, 0, -130);
       s.scene.rotation.set(0, 0, 0);
       scene.add(s.scene);
       console.log(s);
@@ -97,10 +98,10 @@ const Globe = () => {
 
     // * create orbit controls for the camera
     const controls = new OrbitControls(camera, canvasRef.current);
-    controls.enableDamping = false;
+    controls.enableDamping = true;
     controls.autoRotate = false;
     controls.autoRotateSpeed = 1.5;
-    controls.enablePan = false;
+    controls.enablePan = isMedium ? false : isSmall ? false : true;
     controls.enableZoom = false;
     controls.enableRotate = false;
 
@@ -116,7 +117,7 @@ const Globe = () => {
     // * create the animation loop
     const loop = () => {
       controls.update();
-      renderer.render(scene, camera, sphere, hoop, finger);
+      renderer.render(scene, camera, hoop, sphere, finger);
       window.requestAnimationFrame(loop);
     };
     loop();

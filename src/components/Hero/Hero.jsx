@@ -15,6 +15,7 @@ function Hero() {
           whileInView={{
             opacity: 1,
             x: 0,
+            zIndex: 10,
           }}
           transition={{
             ease: "backIn",
@@ -31,6 +32,7 @@ function Hero() {
           whileInView={{
             opacity: 1,
             x: 0,
+            zIndex: 10,
           }}
           transition={{
             ease: "backIn",
