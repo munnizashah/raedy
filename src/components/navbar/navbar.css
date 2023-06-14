@@ -17,6 +17,28 @@
 .navbarlogoContainer {
   z-index: 50;
   padding: 1.5rem 1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbarlogoContainer button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.navbarlogoContainer button svg {
+  fill: white;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .navbarlogoContainer img {

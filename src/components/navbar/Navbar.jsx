@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { Spin as Hamburger } from "hamburger-react";
 import React, { useEffect, useRef, useState } from "react";
+import { VscMute, VscUnmute } from "react-icons/vsc";
 import "./navbar.css";
 
-const readyIcon = "assets/icons/ready-cropped.png";
+const readyIcon = "/assets/icons/ready-cropped.png";
 const menuVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -14,6 +15,7 @@ const menuVariants = {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const audioEl = useRef(null);
 
   const handleScroll = () => {
@@ -22,42 +24,49 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
-    if (isOpen && audioEl.current) {
-      audioEl.current.play();
-    }
-  }, [isOpen]);
-
-  const pauseAudio = () => {
+  const handleAudio = () => {
     if (audioEl.current) {
-      audioEl.current.pause();
+      audioEl.current.muted = !audioEl.current.muted;
+      setIsMuted(audioEl.current.muted);
     }
   };
 
-  // Add event listener for scroll on mount and remove on unmount
+  const backToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    audioEl.current.play();
+  };
+
   useEffect(() => {
+    window.addEventListener("load", () => setIsMuted(audioEl.current.muted));
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const closeMenu = () => {
-    setIsOpen(false);
-    pauseAudio();
-  };
+  useEffect(() => {
+    if (isOpen && audioEl.current) {
+      audioEl.current.play();
+    }
+  }, [isOpen]);
 
   return (
     <nav className="navbar">
-      <a href="#home" className="navbarlogoContainer">
-        <img
-          src={readyIcon}
-          className="readyIcon"
-          onClick={closeMenu}
-          alt="Logo to take user back to home"
-        />
-      </a>
-
+      <div className="navbarlogoContainer">
+        <a href="#home">
+          <img
+            src={readyIcon}
+            className="readyIcon"
+            onClick={backToTop}
+            alt="Logo to take user back to home"
+          />
+        </a>
+        <button onClick={handleAudio}>{isMuted ? <VscMute /> : <VscUnmute />}</button>
+      </div>
       <div className="navbarBurgerContainer">
         <Hamburger
           toggled={isOpen}
@@ -89,7 +98,7 @@ const Navbar = () => {
           </li>
         </motion.ul>
       </motion.nav>
-      <audio ref={audioEl} src="/assets/sounds/ball_bounce.mp3" />
+      <audio ref={audioEl} src="/assets/sounds/theme_song.mp3" />
     </nav>
   );
 };
