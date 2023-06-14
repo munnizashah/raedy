@@ -24,6 +24,9 @@ function Footer() {
   return (
     <div className="footer">
       <div className="footerContainer">
+        <div className="raedyFooterIcon">
+          <img src={readyIcon} alt="logo" />
+        </div>
         <div className="col">
           <h3>
             Menu{" "}
@@ -39,6 +42,7 @@ function Footer() {
             ))}
           </ul>
         </div>
+
         <div className="col">
           <h3>
             More{" "}
@@ -54,6 +58,7 @@ function Footer() {
             ))}
           </ul>
         </div>
+
         <div className="col">
           <h3>
             Raedy Camp
@@ -69,9 +74,7 @@ function Footer() {
             ))}
           </ul>
         </div>
-        <div className="raedyFooterIcon">
-          <img src={readyIcon} alt="logo" />
-        </div>
+
         <div className="socialIcons">
           <BsFacebook size={30} color="white" />
           <BsTwitter size={30} color="white" />
