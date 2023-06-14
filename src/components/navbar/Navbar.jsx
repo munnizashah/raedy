@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Spin as Hamburger } from "hamburger-react";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import readyIcon from "../../assets/icons/ready-cropped.png";
 import "./navbar.css";
 
@@ -14,13 +14,25 @@ const menuVariants = {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const audioEl = new Audio("whistleBlowing.mp3");
+  const audioEl = useRef(null);
 
-  const handleScroll = useCallback(() => {
+  const handleScroll = () => {
     if (window.scrollY > 1) {
       setIsOpen(false);
     }
-  }, []);
+  };
+
+  useEffect(() => {
+    if (isOpen && audioEl.current) {
+      audioEl.current.play();
+    }
+  }, [isOpen]);
+
+  const pauseAudio = () => {
+    if (audioEl.current) {
+      audioEl.current.pause();
+    }
+  };
 
   // Add event listener for scroll on mount and remove on unmount
   useEffect(() => {
@@ -28,28 +40,23 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [handleScroll]);
-
-  const closeMenu = useCallback(() => {
-    setIsOpen(false);
   }, []);
 
+  const closeMenu = () => {
+    setIsOpen(false);
+    pauseAudio();
+  };
+
   return (
-    <div className="navbar">
-      <div className="navbarlogoContainer">
-        <a href="#home">
-          <img
-            src={readyIcon}
-            className="readyIcon"
-            onClick={() => {
-              closeMenu();
-              audioEl.play();
-            }}
-            color={isOpen ? "#34D399" : "#ccc"}
-            alt="Logo to take user back to home"
-          />
-        </a>
-      </div>
+    <nav className="navbar">
+      <a href="#home" className="navbarlogoContainer">
+        <img
+          src={readyIcon}
+          className="readyIcon"
+          onClick={closeMenu}
+          alt="Logo to take user back to home"
+        />
+      </a>
 
       <div className="navbarBurgerContainer">
         <Hamburger
@@ -70,21 +77,20 @@ const Navbar = () => {
           zIndex: 10,
         }}
       >
-        <motion.div className="menu" variants={menuVariants} initial="hidden" animate="visible">
-          <ul>
-            <li onClick={closeMenu}>
-              <a href="#home">Home</a>
-            </li>
-            <li onClick={closeMenu}>
-              <a href="#about">About</a>
-            </li>
-            <li onClick={closeMenu}>
-              <a href="#gallery">Gallery</a>
-            </li>
-          </ul>
-        </motion.div>
+        <motion.ul className="menu" variants={menuVariants} initial="hidden" animate="visible">
+          <li onClick={closeMenu}>
+            <a href="#home">Home</a>
+          </li>
+          <li onClick={closeMenu}>
+            <a href="#about">About</a>
+          </li>
+          <li onClick={closeMenu}>
+            <a href="#gallery">Gallery</a>
+          </li>
+        </motion.ul>
       </motion.nav>
-    </div>
+      <audio ref={audioEl} src="/sounds/theme_song.mp3" />
+    </nav>
   );
 };
 

@@ -48,7 +48,7 @@
   -webkit-backdrop-brightness: 10%;
 }
 
-.menu ul {
+.menu {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -56,11 +56,11 @@
   padding: 1rem;
 }
 
-.menu ul li {
+.menu li {
   list-style-type: none;
 }
 
-.menu ul li a {
+.menu li a {
   margin-right: 1rem;
   color: white;
   font-size: 2rem;
@@ -71,7 +71,7 @@
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
-.menu ul li a:hover {
+.menu li a:hover {
   color: rgb(4, 213, 213);
 }
 
