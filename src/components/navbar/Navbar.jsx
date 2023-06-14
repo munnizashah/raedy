@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Spin as Hamburger } from "hamburger-react";
 import React, { useEffect, useRef, useState } from "react";
-import readyIcon from "../../assets/icons/ready-cropped.png";
 import "./navbar.css";
 
+const readyIcon = "assets/icons/ready-cropped.png";
 const menuVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -89,7 +89,7 @@ const Navbar = () => {
           </li>
         </motion.ul>
       </motion.nav>
-      <audio ref={audioEl} src="/sounds/theme_song.mp3" />
+      <audio ref={audioEl} src="/assets/sounds/ball_bounce.mp3" />
     </nav>
   );
 };

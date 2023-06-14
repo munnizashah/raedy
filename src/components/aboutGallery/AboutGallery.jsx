@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import React, { useEffect, useRef } from "react";
-import { aboutImage0, aboutImage2, aboutImage3 } from "../../assets/images/Index";
+import { aboutImage0, aboutImage2, aboutImage3 } from "../../seeder";
 import "./aboutGallery.css";
 
 function AboutGallery() {

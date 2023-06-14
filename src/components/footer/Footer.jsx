@@ -1,8 +1,8 @@
 import React from "react";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
-import readyIcon from "../../assets/icons/ready-cropped.png";
 import "./footer.css";
 
+const readyIcon = "assets/icons/ready-cropped.png";
 const menuItems = [
   { name: "Home", link: "/" },
   { name: "About", link: "/" },

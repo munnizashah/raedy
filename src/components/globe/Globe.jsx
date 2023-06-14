@@ -20,7 +20,7 @@ const Globe = () => {
 
     // create a sphere geometry
     const sphere = new GLTFLoader();
-    sphere.load("assets/basketball.glb", function (s) {
+    sphere.load("/assets/models/basketball.glb", function (s) {
       s.scene.scale.set(
         isSmall ? 4 : isMedium ? 3 : 5,
         isSmall ? 4 : isMedium ? 3 : 5,
@@ -37,7 +37,7 @@ const Globe = () => {
     });
 
     const hoop = new GLTFLoader();
-    hoop.load("assets/basketball_hoop.glb", function (s) {
+    hoop.load("/assets/models/basketball_hoop.glb", function (s) {
       s.scene.scale.set(
         isSmall ? 0.1 : isMedium ? 0.2 : 0.2,
         isSmall ? 0.1 : isMedium ? 0.2 : 0.2,
@@ -46,14 +46,12 @@ const Globe = () => {
       s.scene.position.set(0, 0, -130);
       s.scene.rotation.set(0, 0, 0);
       scene.add(s.scene);
-      console.log(s);
     });
 
-    const skinnormals = new THREE.TextureLoader().load("assets/skinNormal.jpg");
+    const skinnormals = new THREE.TextureLoader().load("/assets/models/skinNormal.jpg");
     const finger = new GLTFLoader();
-    finger.load("assets/finger.glb", function (s) {
+    finger.load("/assets/models/finger.glb", function (s) {
       s.scene.scale.set(1.8, 1.8, 1.8);
-      console.log(s);
       s.scene.position.set(0, -11.5, 0);
       s.scene.rotation.set(0, 0.5, 0);
       scene.add(s.scene);
